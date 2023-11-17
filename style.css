@@ -15,4 +15,11 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: grey;
+}
+
+section img {
+    width: 500%;
+    height: auto;
+    object-fit: cover;
 }
