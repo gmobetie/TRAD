@@ -1,7 +1,7 @@
 const { innerHeight } = window;
 
 gsap.to("#zoom-in img", {
-  scale: 30,
+  scale: 50,
   stager: 0.25,
   duration: 3,
   scrollTrigger: {
@@ -10,7 +10,7 @@ gsap.to("#zoom-in img", {
     end: `+=${innerHeight * 1.3}`,
     scrub: 3,
     onComplete: function () {
-        gsap.to("#zoom-in img", { opacity: 0, duration: 1 });
+        gsap.to("#zoom-in ", { opacity: 0, duration: 1 });
         
         gsap.to(window, { scrollTo: { y: "main:last-of-type" }, duration: 1, snap: 1 });
     }
