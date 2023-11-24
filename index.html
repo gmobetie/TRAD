@@ -11,19 +11,26 @@
 <body>
     <section id="zoom-in">
         <div id="ciel">
-            
+            <span class="effetneon">TR'AD</span>
+            <audio class="sound" id="neon-sound" loop>
+                <source src="assets/sound/neon.mp3" type="audio/mp3">
+            </audio>
         </div>
-        <img src="assets/Magasin.svg" alt="">
+        <div id="magasin">
+            <audio class="sound" id="clochette-sound" loop>
+                <source src="assets/sound/clochette.mp3" type="audio/mp3">
+                Votre navigateur ne prend pas en charge l'élément audio.
+              </audio>
+            <img src="assets/Magasin.svg" alt="">
+        </div>
         <div id="route">
+            <div class="mouse"></div>
         </div>
     </section>
     <main>
-        <div class="effetneon">
-             <br>
-            <span>TR'AD</span>
-        </div>
-    </main>
 
+    </main>
+    <script src="https://www.unpkg.com/howler@2.2.4/dist/howler.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>

@@ -1,13 +1,35 @@
-*{
+@import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+:root {
+    /* Set neon color */
+    --neon-text-color: #5B5A9D;
+    --neon-border-color: #9A8BD2;
+    --blanc: #f7f5f2;
+    --violet: #9A8BD2;
+
+}
+
+body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  
+body {
     font-family: 'Poppins', sans-serif;
     background: #5B5A9D;
+
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+
 }
+
+
 
 #zoom-in {
     height: 100vh;
@@ -23,13 +45,20 @@ body{
 
 }
 
-#zoom-in img {
-    
+#zoom-in #magasin {
+
     height: 70%;
     z-index: 2;
 }
 
-#zoom-in #route, #zoom-in #ciel {
+#magasin img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#zoom-in #route,
+#zoom-in #ciel {
     width: 100vw;
     height: 30%;
 }
@@ -38,66 +67,123 @@ body{
     background-color: #323643;
     border-top: 10px solid #E2E5E1;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     margin-top: -20px;
 }
 
+#zoom-in #ciel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span.effetneon {
+    font-size: 6rem;
+    font-weight: 200;
+    font-family: 'Exo 2', sans-serif;
+    color: #fff;
+    animation: flicker 1.5s infinite alternate;
+    user-select: none;
+
+}
+
+.effetneon::-moz-selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+}
+
+.effetneon::selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+}
+
+.sound{
+    display: none;
+}
+
+.mouse {
+	width: 35px;
+	height: 60px;
+	border: 2px solid var(--blanc);
+	border-radius: 60px;
+	position: relative;
+	&::before {
+		content: '';
+		width: 12px;
+		height: 12px;
+		position: absolute;
+		top: 7px;
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: var(--blanc);
+		border-radius: 50%;
+		opacity: 1;
+		animation: wheel 2s infinite;
+		-webkit-animation: wheel 2s infinite;
+	}
+}
+
+@keyframes wheel {
+	to {
+		opacity: 0;
+		top: 40px;
+	}
+}
+
+@-webkit-keyframes wheel {
+	to {
+		opacity: 0;
+		top: 430px;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+    #route {
+        width: 70%;
+    }
+
+}
+
+/* Animate neon flicker */
+@keyframes flicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+
+        text-shadow:
+            -0.2rem -0.2rem 1rem #fff,
+            0.2rem 0.2rem 1rem #fff,
+            0 0 2rem var(--neon-text-color),
+            0 0 4rem var(--neon-text-color),
+            0 0 6rem var(--neon-text-color),
+            0 0 8rem var(--neon-text-color),
+            0 0 10rem var(--neon-text-color);
+
+    }
+
+    20%,
+    24%,
+    55% {
+        text-shadow: none;
+    }
+}
+
+
 main {
     width: 100%;
-    height: 100vh;
+    height: 150vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-}
-
-
-<<<<<<< HEAD
-@media screen and (min-width: 1000px) {
-    section img {
-        width: 70%;
-    }
-
-=======
-.effetneon {
-    font-size: 4rem;
-    text-align: center;
-    color: #fff;
-    text-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 42px #E6C8F2,
-        0 0 77px #E6C8F2,
-        0 0 100px #E6C8F2;
-    animation: lumiere 1s infinite linear;
-}
-@keyframes lumiere {
-    0%{
-        text-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 42px #E6C8F2,
-        0 0 77px #E6C8F2,
-        0 0 100px #E6C8F2;
-    }
-   50%{
-        text-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 32px #E6C8F2,
-        0 0 87px #E6C8F2,
-        0 0 120px #E6C8F2;
-    }
-}
-.effetneon span {
-    font-size: 6rem;
-}
-
-.container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    min-height: 100vh;
->>>>>>> neon
+    background: linear-gradient(180deg, rgba(226,219,229,1) 0%, rgba(91,90,157,1) 40%, rgba(91,90,157,1) 100%);
 }
