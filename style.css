@@ -17,15 +17,19 @@
 
 body::-webkit-scrollbar {
     display: none;
-  }
-  
-  
+}
+
+
+
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #5B5A9D;
 
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
+
+    cursor: url('assets/curseur.svg'), auto;
 
 }
 
@@ -64,7 +68,7 @@ body {
 }
 
 #zoom-in #route {
-    background-color: #323643;
+    background-color: #555862;
     border-top: 10px solid #E2E5E1;
     z-index: 1;
     display: flex;
@@ -100,44 +104,43 @@ span.effetneon {
     color: var(--neon-text-color);
 }
 
-.sound{
-    display: none;
-}
+
 
 .mouse {
-	width: 35px;
-	height: 60px;
-	border: 2px solid var(--blanc);
-	border-radius: 60px;
-	position: relative;
-	&::before {
-		content: '';
-		width: 12px;
-		height: 12px;
-		position: absolute;
-		top: 7px;
-		left: 50%;
-		transform: translateX(-50%);
-		background-color: var(--blanc);
-		border-radius: 50%;
-		opacity: 1;
-		animation: wheel 2s infinite;
-		-webkit-animation: wheel 2s infinite;
-	}
+    width: 35px;
+    height: 60px;
+    border: 2px solid var(--blanc);
+    border-radius: 60px;
+    position: relative;
+
+    &::before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: 7px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--blanc);
+        border-radius: 50%;
+        opacity: 1;
+        animation: wheel 2s infinite;
+        -webkit-animation: wheel 2s infinite;
+    }
 }
 
 @keyframes wheel {
-	to {
-		opacity: 0;
-		top: 40px;
-	}
+    to {
+        opacity: 0;
+        top: 40px;
+    }
 }
 
 @-webkit-keyframes wheel {
-	to {
-		opacity: 0;
-		top: 430px;
-	}
+    to {
+        opacity: 0;
+        top: 430px;
+    }
 }
 
 @media screen and (min-width: 1000px) {
@@ -185,5 +188,5 @@ main {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background: linear-gradient(180deg, rgba(226,219,229,1) 0%, rgba(91,90,157,1) 40%, rgba(91,90,157,1) 100%);
+    background: linear-gradient(180deg, rgba(226, 219, 229, 1) 0%, rgba(91, 90, 157, 1) 40%, rgba(91, 90, 157, 1) 100%);
 }

@@ -1,27 +1,40 @@
 const { innerHeight } = window;
-gsap.registerPlugin(ScrollTrigger);
-var sound = new Howl({
-  src: ['assets/sound/clochette.mp3']
+var sound_neon = new Howl({
+  src: ["assets/sound/neon.mp3"],
+  volume: 0.5,
+  loop: true,
 });
 
-gsap.to("#zoom-in img", {
+var sound_clochette = new Howl({
+  src: ["assets/sound/clochette.mp3"],
+  volume: 1,
+  loop: false,
+});
+
+
+window.addEventListener('scroll', function() {
+  console.log("Taux de défilement :", window.scrollY);
+  if (window.scrollY > 100) {
+    sound_neon.stop();
+  }
+  else {
+    sound_neon.play();
+  }
+  if (window.scrollY > 300 && window.scrollY < 400) {
+    sound_clochette.play();
+  }
+});
+
+
+gsap.to("#magasin", {
   scale: 50,
-  stager: 0.25,
   duration: 3,
   scrollTrigger: {
     trigger: "#zoom-in",
     pin: true,
     end: `+=${innerHeight * 1.3}`,
-    scrub: 3,
-    onEnter: () => {
-      Howler.ctx.resume().then(() => {
-        sound.play();
-    });
-    },
+    scrub: 2,
 
-    onComplete: function () {
-        gsap.to("#zoom-in ", { opacity: 0, duration: 1 });
-        gsap.to(window, { scrollTo: { y: "main:last-of-type" }, duration: 1, snap: 1 });
-    }
   },
+  
 });
