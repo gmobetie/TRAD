@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 20vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+header #header-circle {
+    background: #000;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+    width: 37.85714rem;
+    height: 29.14286rem;
+    margin-left: -11.42857rem;
+    margin-top: -16.42857rem;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+header #menu-nav {
+    display: flex;
+    padding-top: 2rem;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+#logo-menu {
+    height: 100%;
+    width: 20rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+}
+
+#logo-menu h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-left: 1rem;
+    width: 50%;
+
+}
+
+#logo {
+    width: 50%;
+    height: 100%;
+    background-image: url(assets/LogoTradd.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+#logo:hover {
+    background-image: url(assets/LogoTraddClair.png);
+}
+
+#banner {
+    display: flex;
+    padding-top: 15vh;
+    align-items: center;
+    height: 50vh;
+    overflow: hidden;
+    margin-left: -100px; ;
+    transform: rotate(-7deg);
+}
+
+#scroll{
+    white-space: nowrap;
+    margin: 0 2em;
+
+}
+
+#scroll div {
+    display: flex;
+    gap : 2em;
+    text-transform: uppercase;
+    font-size: 7em;
+    animation: RightToLeft 20s linear infinite;
+}
+
+@keyframes RightToLeft {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
