@@ -24,14 +24,96 @@ body::-webkit-scrollbar {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #5B5A9D;
-
+    background: var(--violet);
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
-
-    cursor: url('assets/curseur.svg'), auto;
-
+    cursor: url('../assets/curseur.svg'), auto;
 }
+#start-div, #start-div2 {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#start-div {
+    
+    z-index: 100;
+    background-image: url("../assets/ciel.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+#start-div2 {
+    z-index: 101;
+}
+
+
+
+@keyframes sheen {
+    0% {
+        transform: skewY(-45deg) translateX(0);
+    }
+
+    100% {
+        transform: skewY(-45deg) translateX(12.5em);
+    }
+}
+
+#start-wrapper {
+    display: block;
+    position: absolute;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: bolder;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#start-button {
+    padding: 0.75em 2em;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    font-size: 24px;
+    display: inline-block;
+    border-radius: 0.3em;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+#start-button:before {
+    content: "";
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100%;
+    width: 3em;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -4.5em;
+    transform: skewX(-45deg) translateX(0);
+    transition: none;
+}
+
+#start-button:hover {
+    background-color: black;
+    color: var(--blanc);
+    border-bottom: 4px solid darken(black, 10%);
+}
+
+#start-button:hover:before {
+    transform: skewX(-45deg) translateX(13.5em);
+    transition: all 0.5s ease-in-out;
+}
+
+
 
 
 
@@ -42,7 +124,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(assets/ciel.jpg);
+    background-image: url(../assets/ciel.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;

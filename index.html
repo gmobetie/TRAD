@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TR'AD</title>
     <link rel="stylesheet" href="style/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script type="importmap">
         {
           "imports": {
@@ -21,25 +22,42 @@
         <div id="header-circle"></div>
         <div id="menu-nav">
             <div id="logo-menu">
-                <div id="logo"></div>
+                <img src="assets/LogoTradd.svg" alt="" srcset="" id="logo">
                 <h1>TR'AD</h1>
             </div>
-            <a href="jeu.html">test</a>
+            <a href="jeu.html"><span>
+                    Jouer
+                </span></a>
         </div>
     </header>
-    <div class="banner-container">
-        <div class="banner" id="banner">
-            <div id="scroll">
-                <div>
-                    <p>Lorem ipsum dolor sit amet consectetur </p>
-                    <p>Lorem ipsum dolor sit amet consectetur </p>
-                </div>
+    <div class="banner" id="banner">
+        <div id="scroll">
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur </p>
+                <p>Lorem ipsum dolor sit amet consectetur </p>
             </div>
         </div>
     </div>
     <div id="render">
 
-    </div>
+</div>
+    <section id="sectionAudio">
+        <div id="titleAudio">
+            <h2>
+                <span>Test</span>
+                <span>Ton</span>
+                <span>Son</span>
+            </h2>
+        </div>
+        <div id="testAudio">
+           
+            <div class="container">
+                <canvas id="audioPlay"></canvas>
+            </div>
+            <p>Pour une meilleur experience des écouteur sont recommandé</p>
+        </div>
+    </section>
+
     <script type="module" src="script/3D.js"></script>
 
 </body>
