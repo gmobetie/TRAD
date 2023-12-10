@@ -1,7 +1,7 @@
 const { innerHeight } = window;
   var sound_neon = new Howl({
     src: ["assets/sound/neon.mp3"],
-    volume: 0.5,
+    volume: 0.05,
     loop: true,
   });
 
