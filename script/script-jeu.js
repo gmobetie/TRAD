@@ -11,7 +11,6 @@ const { innerHeight } = window;
     loop: false,
   });
   window.addEventListener("scroll", function () {
-    console.log("Taux de défilement :", window.scrollY);
     if (window.scrollY > 100) {
       sound_neon.stop();
     } else {
