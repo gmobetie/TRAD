@@ -78,7 +78,6 @@ let opt ={
   speed:-0.1,
   strokeColor: "black",
   strokeWidth: 3,
-  power: false,
 
 };
 
@@ -117,19 +116,49 @@ const render = () => {
 };
 render();
 
-c.addEventListener("click", () => {
-  opt.power = !opt.power;
-  if (opt.power) {
+const cursor = document.querySelector(".cursor");
+const round = document.querySelector(".ring div");
+const ring = document.querySelector(".ring");
+
+var music = new Howl({
+  src: ["assets/sound/musique.mp3"],
+  volume: 0.5,
+  loop: true,
+});
+
+c.addEventListener("mouseover", () => {
    TweenMax.to(opt, 1, {
     sinHeight: 15,
     strech: 5,
     ease: Power2.easeInOut,
     });
-  }else{
-    TweenMax.to(opt, 1, {
-      sinHeight: 0,
-      strech: 10,
-      ease: Power3.easeOut,
-      });
-  }
+    cursor.classList.add("play");
+    round.innerHTML = "Play !";
+    music.play();
+
+
+
 });
+
+c.addEventListener("mouseout", () => {
+  TweenMax.to(opt, 1, {
+    sinHeight: 0,
+    strech: 10,
+    ease: Power3.easeOut,
+    });
+
+    cursor.classList.remove("play");
+    round.innerHTML = "";
+    music.stop();
+}
+);
+
+
+
+window.addEventListener("mousemove", (e) => {
+  let sizeW = ring.offsetWidth / 2;
+  let sizeH = ring.offsetWidth / 2;
+  ring.style.transform = `translateX(calc(${e.clientX}px - ${sizeW}px)) translateY(calc(${e.clientY}px - ${sizeH}px))`;
+});
+
+

@@ -18,6 +18,11 @@
 </head>
 
 <body>
+    <div id="cursor" class="cursor">
+        <div class="ring">
+            <div><!--Border--></div>
+        </div>
+    </div>
     <header>
         <div id="header-circle"></div>
         <div id="menu-nav">
@@ -25,9 +30,16 @@
                 <img src="assets/LogoTradd.svg" alt="" srcset="" id="logo">
                 <h1>TR'AD</h1>
             </div>
-            <a href="jeu.html"><span>
-                    Jouer
-                </span></a>
+            <a href="/jeu.html" class="c-button">
+                <span class="c-button_label">Commencer</span>
+                <span class="c-button_circle ">
+                    <span class="c-button_icon ">
+                        <svg width="25" height="25">
+                            <polygon points="12.5,0 25,25 0,25" style="fill:black;stroke:black;stroke-width:1" />
+                        </svg>
+                    </span>
+                </span>
+            </a>
         </div>
     </header>
     <div class="banner" id="banner">
@@ -57,7 +69,7 @@
             <p>Pour une meilleur experience des écouteur sont recommandé</p>
         </div>
     </section>
-
+    <script src="https://www.unpkg.com/howler@2.2.4/dist/howler.min.js"></script>
     <script type="module" src="script/3D.js"></script>
 
 </body>
