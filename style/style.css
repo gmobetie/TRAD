@@ -278,6 +278,50 @@ canvas {
     transform: rotate(90deg);
   }
 
+  #explications {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #CDC7F3;
+    padding: 30px;
+    padding-bottom: 100px;
+  }
+
+  .explication {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+   
+  }
+
+  #explications .explication h2 {
+    font-size: 2.5vw;
+    background-image:url("../assets/back2.svg");
+  }
+
+  .explication p , .explication h2 {
+    font-size: 1.5vw;
+    max-width: 70%;
+    background-image:url("../assets/back1.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    text-align: center;
+    padding: 20px 60px 20px 60px;
+    aspect-ratio: 1278/155;
+  }
+
+  .explication p span {
+    font-weight: 700;
+  }
+  
 
 
 
