@@ -264,19 +264,91 @@ span.effetneon {
 
 
 #effetGroupe {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background: linear-gradient(180deg, rgba(226, 219, 229, 1) 0%, #e2dbe5 40%, #e2dbe5 100%);
+    position: relative;
+    background-image: url(../assets/chemin.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
 }
 
-#effetGroupe img {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: block; /* Pour enlever l'espace en bas de l'image */
-    
+#effetGroupe::before {
+    content: "";
+    padding-top: 56.25%; /* Ratio 16:9 (9/16 * 100%) */
+    display: block;
+    visibility: hidden; /* Cacher l'espace réservé du pseudo-élément */
 }
+
+.path {
+    position: relative;
+    background-color: #3498db;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .popup {
+    position: absolute;
+    display: none;
+    padding: 30px;
+    background-color: #ecf0f1;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    
+  }
+
+  .path:hover + .popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .path:hover {
+    background-color: #e74c3c;
+  }
+
+  .divider {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  #path1 {
+    top: 50%;
+    left: 20%;
+  }
+
+  #path2 {
+    top: 50%;
+    left: 50%;
+  }
+
+  #path3 {
+    top: 50%;
+    left: 80%;
+  }
+
+  #popup1 {
+    top: 30%;
+    left: 20%;
+  }
+
+  #popup2 {
+    top: 30%;
+    left: 50%;
+  }
+
+  #popup3 {
+    top: 30%;
+    left: 80%;
+  }
