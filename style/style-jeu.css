@@ -29,7 +29,9 @@ body {
     scrollbar-color: transparent transparent;
     cursor: url('../assets/curseur.svg'), auto;
 }
-#start-div, #start-div2 {
+
+#start-div,
+#start-div2 {
     height: 100vh;
     width: 100%;
     position: absolute;
@@ -39,8 +41,9 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 #start-div {
-    
+
     z-index: 100;
     background-image: url("../assets/ciel.jpg");
     background-repeat: no-repeat;
@@ -49,6 +52,7 @@ body {
     filter: blur(8px);
     -webkit-filter: blur(8px);
 }
+
 #start-div2 {
     z-index: 101;
 }
@@ -225,12 +229,6 @@ span.effetneon {
     }
 }
 
-@media screen and (min-width: 1000px) {
-    #route {
-        width: 70%;
-    }
-
-}
 
 /* Animate neon flicker */
 @keyframes flicker {
@@ -271,4 +269,119 @@ span.effetneon {
     align-items: center;
     overflow: hidden;
     background: linear-gradient(180deg, rgba(226, 219, 229, 1) 0%, rgba(91, 90, 157, 1) 40%, rgba(91, 90, 157, 1) 100%);
+}
+
+#effetVonRestorff {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    width: calc(100% - 100px);
+    border-radius: 5vmin 5vmin 1vmin 1vmin;
+    max-height: 720px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* overflow: hidden; */
+    background-image: linear-gradient(to bottom, #CCCCCC 0, #CCCCCC 200px, #E6E6E6 200px, #E6E6E6 225px, #9E9E9E 225px, #9e9e9e 230px);
+    background-size: 10px 230px;
+    box-shadow: 5px 8px 3px 2px #0000007c, inset 5px 8px 3px 2px #0000003c;
+
+    border: solid 30px #ddd;
+    row-gap: 30px;
+}
+
+#shoppingCart {
+    width: 50%;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+}
+
+.dropzone {
+    width: 90%;
+    margin: 10px;
+    padding: 10px;
+    height: 200px;
+    background-color: #ffffff5e;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.chariot {
+    width: 100%;
+    height: 200px;
+}
+
+
+.fruit {
+    margin-top: 20px;
+    width: 16%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    filter: drop-shadow(16px 0px 5px #0000003c);
+}
+
+.fruit img {
+    width: 100%;
+}
+
+.dropzone .fruit {
+    width: 100%;
+    margin-top: 0px;
+
+}
+.dropzone .fruit img {
+    width: 100%;
+    max-width: 180px;
+}
+
+
+#main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    z-index: 10;
+    pointer-events: none;
+    transform: rotate(90deg);
+}
+
+#main img {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-40deg);
+
+
+}
+
+
+
+@media screen and (min-width: 1000px) {
+    #route {
+        width: 70%;
+    }
+
+    .fruit {
+        width: 180px;
+    }
+
+
+
 }
