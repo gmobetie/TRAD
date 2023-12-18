@@ -260,16 +260,99 @@ span.effetneon {
     }
 }
 
-
 #effetGroupe {
-    width: 100%;
-    height: 150vh;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
-    background: linear-gradient(180deg, rgba(226, 219, 229, 1) 0%, rgba(91, 90, 157, 1) 40%, rgba(91, 90, 157, 1) 100%);
+    position: relative;
+    background-image: url(../assets/chemin.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
 }
+
+#effetGroupe::before {
+    content: "";
+    padding-top: 56.25%; /* Ratio 16:9 (9/16 * 100%) */
+    display: block;
+    visibility: hidden; /* Cacher l'espace réservé du pseudo-élément */
+}
+
+.path {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff; /* Couleur de fond du popup */
+    color: #333; /* Couleur du texte du popup */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px; /* Largeur maximale du popup */
+    width: 100%;
+    text-align: center;
+  }
+  
+  .path:hover + .popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .path:hover {
+    background-color: #e74c3c;
+  }
+
+  .divider {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  #path1 {
+    top: 50%;
+    left: 60%;
+    background-color: #D65D6C;
+  }
+
+  #path2 {
+    top: 50%;
+    left: 50%;
+    background-color: #58B5D2;
+  }
+
+  #path3 {
+    top: 50%;
+    left: 40%;
+    background-color: #8362E2;
+  }
+
+  #popup1 {
+    top: 40%;
+    left: 20%;
+  }
+
+  #popup2 {
+    top: 40%;
+    left: 50%;
+  }
+
+  #popup3 {
+    top: 40%;
+    left: 80%;
+  }
 
 #effetVonRestorff {
     width: 100vw;
