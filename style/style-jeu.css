@@ -281,6 +281,16 @@ span.effetneon {
     overflow: hidden;
 }
 
+#effetVonRestorff h3 {
+    font-size: 3rem;
+    font-weight: 400;
+    font-family: 'Exo 2', sans-serif;
+    color: #fff;
+    padding: 0 2rem;   
+    text-align: center; 
+    user-select: none;
+}
+
 .container {
     width: calc(100% - 100px);
     border-radius: 5vmin 5vmin 1vmin 1vmin;
@@ -300,7 +310,7 @@ span.effetneon {
 }
 
 #shoppingCart {
-    width: 50%;
+    width: 90%;
     height: 250px;
     display: flex;
     flex-direction: row;
@@ -380,6 +390,10 @@ span.effetneon {
 
     .fruit {
         width: 180px;
+    }
+
+    #shoppingCart {
+        width: 50%;
     }
 
 

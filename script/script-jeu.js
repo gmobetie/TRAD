@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var divStart = document.getElementById("start-div");
   var divStart2 = document.getElementById("start-div2");
   //impossible de scroll
-  //document.body.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
 
   startButton.addEventListener("click", function () {
     document.body.style.overflow = "auto";
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
   vonRestorff.addEventListener("mouseenter", function () {
     document.body.style.cursor = "none";
     var img = document.createElement("img");
-    img.src = "../assets/fruit/main.svg";    
+    img.src = "../assets/fruit/main.svg";
     main.appendChild(img);
     vonRestorff.addEventListener("mousedown", function () {
       img.src = "../assets/fruit/poing.svg";
@@ -61,8 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   vonRestorff.addEventListener("mouseleave", function () {
-    // cursor: url('../assets/curseur.svg'), auto;
-
     document.body.style.cursor = "url('../assets/curseur.svg'), auto";
     main.innerHTML = "";
   });
@@ -74,45 +72,46 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   gsap.from("#shoppingCart", {
-    x: '-100vw',
+    x: "-100vw",
     stagger: 0.2,
     duration: 2,
-    ease: 'power2.out',
+    ease: "power2.out",
     scrollTrigger: {
-      trigger: '.container', 
-      start: 'center center',
-      end: '+=100vw', 
-      scrub: 3, 
+      trigger: ".container",
+      start: "center center",
+      end: "+=100vw",
+      scrub: 3,
     },
   });
-  
+
   var container = document.querySelector(".container");
 
   // Draggable
-  interact(".fruit").draggable({
-    onstart: function (event) {
-      event.target.classList.add("dragging");
-    },
-    onmove: function (event) {
-      var target = event.target;
-      target.style.zIndex = 2;
-      var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
-      var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
+  interact(".fruit")
+    .draggable({
+      onstart: function (event) {
+        event.target.classList.add("dragging");
+      },
+      onmove: function (event) {
+        var target = event.target;
+        target.style.zIndex = 2;
+        var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
+        var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
 
-      target.style.transform = "translate(" + x + "px, " + y + "px)";
-      target.setAttribute("data-x", x);
-      target.setAttribute("data-y", y);
-    },
-    onend: function (event) {
-      event.target.style.zIndex = 1;
-      event.target.setAttribute("data-x", 0);
-      event.target.setAttribute("data-y", 0);
+        target.style.transform = "translate(" + x + "px, " + y + "px)";
+        target.setAttribute("data-x", x);
+        target.setAttribute("data-y", y);
+      },
+      onend: function (event) {
+        event.target.style.zIndex = 1;
+        event.target.setAttribute("data-x", 0);
+        event.target.setAttribute("data-y", 0);
 
-      event.target.classList.remove("dragging");
-      event.target.style.transform = ""; // Reset the transform
-    },
-  }).styleCursor(false);
-
+        event.target.classList.remove("dragging");
+        event.target.style.transform = ""; // Reset the transform
+      },
+    })
+    .styleCursor(false);
 
   // Dropzone
   interact(".dropzone").dropzone({
@@ -150,18 +149,27 @@ document.addEventListener("DOMContentLoaded", function () {
       draggableElement.classList.remove("can-drop");
       if (areAllDropzonesFilled()) {
         console.log("All dropzones are filled");
-        // Animate the shopping cart with GSAP
-        gsap.to("#shoppingCart", { x: "+=100vw", duration: 2, ease: "power1.inOut" });
-    }
+        gsap.to("#shoppingCart", {
+          x: "+=100vw",
+          duration: 2,
+          ease: "power1.inOut",
+        });
+        //after display none and go to the next page
+        setTimeout(function () {
+          vonRestorff.style.display = "none";
+          window.location.href = "index.html";
+
+        }, 2000);
+      }
     },
   });
   function areAllDropzonesFilled() {
-    var dropzones = document.querySelectorAll('.dropzone');
+    var dropzones = document.querySelectorAll(".dropzone");
     for (var i = 0; i < dropzones.length; i++) {
-        if (dropzones[i].childElementCount === 0) {
-            return false;
-        }
+      if (dropzones[i].childElementCount === 0) {
+        return false;
+      }
     }
     return true;
-}
+  }
 });
