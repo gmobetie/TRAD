@@ -42,5 +42,3 @@ startButton.addEventListener("click", function () {
   divStart2.style.display = "none";
   sound_neon.play();
 });
-
-

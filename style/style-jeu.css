@@ -262,21 +262,17 @@ span.effetneon {
     }
 }
 
-
 #effetGroupe {
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
     position: relative;
     background-image: url(../assets/chemin.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    justify-content: center;
-    align-items: center;
+    
 }
 
 #effetGroupe::before {
@@ -288,7 +284,6 @@ span.effetneon {
 
 .path {
     position: relative;
-    background-color: #3498db;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -297,16 +292,21 @@ span.effetneon {
   }
 
   .popup {
-    position: absolute;
     display: none;
-    padding: 30px;
-    background-color: #ecf0f1;
-    border: 2px solid #bdc3c7;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff; /* Couleur de fond du popup */
+    color: #333; /* Couleur du texte du popup */
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-    
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px; /* Largeur maximale du popup */
+    width: 100%;
+    text-align: center;
   }
-
+  
   .path:hover + .popup {
     display: flex;
     align-items: center;
@@ -325,30 +325,33 @@ span.effetneon {
 
   #path1 {
     top: 50%;
-    left: 20%;
+    left: 60%;
+    background-color: #D65D6C;
   }
 
   #path2 {
     top: 50%;
     left: 50%;
+    background-color: #58B5D2;
   }
 
   #path3 {
     top: 50%;
-    left: 80%;
+    left: 40%;
+    background-color: #8362E2;
   }
 
   #popup1 {
-    top: 30%;
+    top: 40%;
     left: 20%;
   }
 
   #popup2 {
-    top: 30%;
+    top: 40%;
     left: 50%;
   }
 
   #popup3 {
-    top: 30%;
+    top: 40%;
     left: 80%;
   }
