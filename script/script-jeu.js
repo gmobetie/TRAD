@@ -172,4 +172,50 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     return true;
   }
+
+
+  const pinDistance = 5000;
+  const stepHeight = document.querySelector('.stepped-animation').offsetHeight;
+  
+  gsap.set('.single-step', { autoAlpha: 0 });
+  
+  // Section
+  ScrollTrigger.create({
+    trigger: ".pinned",
+    start: "center center",
+    end: "+=" + pinDistance,
+    pin: "body",
+    markers: false,
+    id: "pinned"
+  });
+  
+  // Texts inside section
+  const stepsTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.pinned .stepped-animation',
+      start: 'top center',
+      end: "+=" + pinDistance,
+      scrub: true,
+      markers: true,
+    }
+  });
+  
+  const steps = gsap.utils.toArray(".pinned .single-step");
+  
+  
+  // loop through each step and add a callback into the timeline, spaced equally (1 second apart just to make things simple)
+  steps.forEach((step, i) => {
+    stepsTimeline.add(() => {
+      // if scrolling backward, we need to invert which element fades in or out
+      const forward = stepsTimeline.scrollTrigger.direction > 0,
+            inEl = forward ? step : steps[i - 1],
+            outEl = forward ? steps[i - 1] : step;
+      
+      outEl && gsap.to(outEl, {autoAlpha: 0, duration: 0.3, overwrite: true});
+      inEl && gsap.to(inEl, {autoAlpha: 1, duration: 0.3, delay: 0.3, overwrite: true});
+    }, i || 0.001);
+  });
+  // add blank space to the end of the timeline so that the last element stays for a bit before unpinning.
+  stepsTimeline.to({}, {duration: 1})
 });
+

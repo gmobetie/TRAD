@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
+@import url('https://fonts.googleapis.com/css?family=Exo+2:200i');
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap');
 
 * {
     margin: 0;
@@ -270,89 +271,94 @@ span.effetneon {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
+
 }
 
 #effetGroupe::before {
     content: "";
-    padding-top: 56.25%; /* Ratio 16:9 (9/16 * 100%) */
+    padding-top: 56.25%;
+    /* Ratio 16:9 (9/16 * 100%) */
     display: block;
-    visibility: hidden; /* Cacher l'espace réservé du pseudo-élément */
+    visibility: hidden;
+    /* Cacher l'espace réservé du pseudo-élément */
 }
 
 .path {
     position: relative;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+}
 
-  .popup {
+.popup {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff; /* Couleur de fond du popup */
-    color: #333; /* Couleur du texte du popup */
+    background-color: #fff;
+    /* Couleur de fond du popup */
+    color: #333;
+    /* Couleur du texte du popup */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    max-width: 400px; /* Largeur maximale du popup */
+    max-width: 400px;
     width: 100%;
+    font-size: 1.5rem;
     text-align: center;
-  }
-  
-  .path:hover + .popup {
+}
+
+.path:hover+.popup {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
 
-  .path:hover {
+.path:hover {
     background-color: #e74c3c;
-  }
+}
 
-  .divider {
+.divider {
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
-  }
+}
 
-  #path1 {
+#path1 {
     top: 50%;
     left: 60%;
     background-color: #D65D6C;
-  }
+}
 
-  #path2 {
+#path2 {
     top: 50%;
     left: 50%;
     background-color: #58B5D2;
-  }
+}
 
-  #path3 {
+#path3 {
     top: 50%;
     left: 40%;
     background-color: #8362E2;
-  }
+}
 
-  #popup1 {
+#popup1 {
     top: 40%;
     left: 20%;
-  }
+}
 
-  #popup2 {
+#popup2 {
     top: 40%;
     left: 50%;
-  }
+}
 
-  #popup3 {
+#popup3 {
     top: 40%;
     left: 80%;
-  }
+}
 
 #effetVonRestorff {
     width: 100vw;
@@ -369,8 +375,8 @@ span.effetneon {
     font-weight: 400;
     font-family: 'Exo 2', sans-serif;
     color: #fff;
-    padding: 0 2rem;   
-    text-align: center; 
+    padding: 0 2rem;
+    text-align: center;
     user-select: none;
 }
 
@@ -439,6 +445,7 @@ span.effetneon {
     margin-top: 0px;
 
 }
+
 .dropzone .fruit img {
     width: 100%;
     max-width: 180px;
@@ -464,12 +471,61 @@ span.effetneon {
 
 }
 
-#transition {
-    width: 100%;
+#explicationGroupe {
     height: 150vh;
+    padding-top:50vh ;
+    width: 100vw;
     background: linear-gradient(180deg, rgba(226, 219, 229, 1) 0%, rgba(91, 90, 157, 1) 40%, rgba(91, 90, 157, 1) 100%);
 }
 
+.pinned {}
+
+
+  .grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 100vh;
+    margin: 0 auto;
+  }
+
+  .img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .img div {
+    padding: 10%;
+    width: 70%;
+    aspect-ratio: 447/559;
+    background-image: url(../assets/feuille.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Just Another Hand', cursive;
+    font-size: 2rem;
+  }
+  
+  
+  .stepped-animation {
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+  }
+  
+  .single-step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
 
 @media screen and (min-width: 1000px) {
     #route {
@@ -482,6 +538,10 @@ span.effetneon {
 
     #shoppingCart {
         width: 50%;
+    }
+
+    .popup {
+        max-width: 600px;
     }
 
 
