@@ -43,3 +43,21 @@ ticketPrev.addEventListener("click", function () {
     //.to(currentTicket, { x: 0, y: 0, rotation: "0deg" })
     .call(animation(ticketNumber));
 });
+
+gsap.registerPlugin(ScrollTrigger)
+
+let container = document.getElementById("containert");
+
+gsap.to(containert, {
+  x: () => -(containert.scrollWidth - document.documentElement.clientWidth) + "px",
+  
+  scrollTrigger: {
+    start: "center center",
+    trigger: containert,
+    invalidateOnRefresh: true,
+    pin: true,
+    scrub: true,
+    anticipatePin: 1,
+    end: () => "+=" + containert.offsetWidth
+  }
+})

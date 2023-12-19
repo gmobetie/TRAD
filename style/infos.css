@@ -52,4 +52,23 @@ section.tickets:hover {
     background-color: #8F80C5;
 }
 
- 
+.maint {
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
+    height:100vh;
+    will-change: transform;
+  }
+  
+  .sectiont {
+    background-image: url(../assets/etagere.svg);
+    background-size: cover;
+    height:100%;
+    display:flex;
+    width: 115vw;
+  }
+  
+
+  
+
+
