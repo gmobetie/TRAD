@@ -67,6 +67,14 @@ section.tickets:hover {
     display:flex;
     width: 115vw;
   }
+
+  .transiHaut{
+    height: 400vh;
+    width : 100%;
+    display:flex;
+    background-image: url(../assets/bigetagere.svg);
+    background-size: contain;
+  }
   
 
   
