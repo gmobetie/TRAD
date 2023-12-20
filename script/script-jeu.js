@@ -3,11 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
   var vonRestorff = document.getElementById("effetVonRestorff");
   var infos_container2 = document.getElementById("infos_container2");
   var containert = document.getElementById("containert");
+  var final = document.getElementById("final");
   //visibility hidden
   effetGroupe.style.display = "none";
   vonRestorff.style.display = "none";
   infos_container2.style.display = "none";
   containert.style.display = "none";
+  final.style.display = "none";
   
 
 
@@ -82,19 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
     main.style.transform = `translateX(calc(${e.clientX}px - ${sizeW}px)) translateY(calc(${e.clientY}px - ${sizeH}px))`;
   });
 
-  gsap.from("#shoppingCart", {
-    x: "-100vw",
-    stagger: 0.2,
-    duration: 2,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".container",
-      start: "center center",
-      end: "+=100vw",
-      scrub: 3,
-    },
-  });
-
   var container = document.querySelector(".container");
 
   // Draggable
@@ -159,16 +148,39 @@ document.addEventListener("DOMContentLoaded", function () {
       dropzoneElement.classList.remove("drop-target");
       draggableElement.classList.remove("can-drop");
       if (areAllDropzonesFilled()) {
-        console.log("All dropzones are filled");
         gsap.to("#shoppingCart", {
           x: "+=100vw",
           duration: 2,
           ease: "power1.inOut",
         });
-        //after display none and go to the next page
+
+        if (ifBanane()) {
+          document.querySelector("#final > div:nth-child(1) > div > h2").innerHTML = "Vous êtes tombé dans le piège du biais de Von Restorff 😮";
+        }
+
         setTimeout(function () {
-          vonRestorff.style.display = "none";
-          window.location.href = "index.html";
+          document.querySelector("#shoppingCart").style.display = "none";
+          final.style.display = "flex";
+          gsap.to(window, {scrollTo:"#final", duration:3, ease: "power1.in"});
+          gsap.utils.toArray(".explicationFinale").forEach((explication, index) => {
+            const direction = index % 2 === 0 ? 1 : -1; // 1 for right, -1 for left
+        
+            gsap.fromTo(
+              explication,
+              { x: `${direction * 100}%` },
+              {
+                x: "0%",
+                scrollTrigger: {
+                  trigger: explication,
+                  start: "bottom bottom",
+                  end: "center center",
+                  scrub: true,
+                },
+              }
+            );
+          });
+
+            
         }, 2000);
       }
     },
@@ -181,6 +193,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
     return true;
+  }
+  function ifBanane() {
+    var dropzones = document.querySelectorAll(".dropzone");
+    for (var i = 0; i < dropzones.length; i++) {
+      //if document.querySelector("#shoppingCart > div:nth-child(3) > div > img").dataset.fruit === "banane"
+      var imgElement = dropzones[i].querySelector("img");
+      if (imgElement && imgElement.dataset.fruit === "banane") {
+          return true;
+      }
+
+    }
+    return false;
   }
 
   const ticketPrev = document.querySelector("#infos_container .tickets");
@@ -233,8 +257,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const timeline = gsap.timeline();
     timeline
       .set(currentTicket, { x: 0, y: 0, duration: 0.5 })
-      //.to(currentTicket, { x: direction, y: -40, rotation: "5deg" })
-      //.to(currentTicket, { x: 0, y: 0, rotation: "0deg" })
+      // .to(currentTicket, { x: direction, y: -40, rotation: "5deg" })
+      // .to(currentTicket, { x: 0, y: 0, rotation: "0deg" })
       .call(animation(ticketNumber));
   });
 
@@ -261,11 +285,11 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       });
             //scroll to containert when click on path
-            gsap.to(window, {scrollTo:"#infos_container2", duration:5});
+            gsap.to(window, {scrollTo:"#infos_container2", duration:3, ease: "power1.in"});
 
             
       if (path.dataset.chemin === "true") {
-        document.querySelector("#infos_container2 > section > div > div:nth-child(3)").innerHTML = "Vous avez choisi le chemin de la droite";
+        document.querySelector("#infos_container2 > section h1").innerHTML = "En prenant le chemin le plus emprunté, vous avez surement subit le biais de groupe 😮";
       }
     });
   });
@@ -286,10 +310,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const animation2 = function (ticketNumber) {
-    tickets.forEach((ticket, index) => {
-      let ticketOrder = (ticketNumber + index) % tickets.length;
+    tickets2.forEach((ticket, index) => {
+      let ticketOrder = (ticketNumber + index) % tickets2.length;
       if (ticketOrder < 0) {
-        ticketOrder = ticketOrder + tickets.length;
+        ticketOrder = ticketOrder + tickets2.length;
       }
       gsap.to(ticket, {
         zIndex: ticketOrder,
@@ -300,9 +324,24 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   ticketPrev2.addEventListener("click", function () {
-   
-    const ticketNumber2 = current2 % tickets.length;
-    const currentTicket2 = tickets[ticketNumber2];
+    if (current2 === tickets2.length) {
+      vonRestorff.style.display = "flex";;
+      gsap.to(window, {scrollTo:"#effetVonRestorff", duration:2, ease: "power1.in"});
+      gsap.from("#shoppingCart", {
+        x: "-100vw",
+        stagger: 0.2,
+        duration: 2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".container",
+          start: "center center",
+          end: "+=100vw",
+          scrub: 3,
+        },
+      });
+    }
+    const ticketNumber2 = current2 % tickets2.length;
+    const currentTicket2 = tickets2[ticketNumber2];
     current2 = current2 + 1;
 
     let direction = "100%";
@@ -314,9 +353,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const timeline2 = gsap.timeline();
     timeline2
       .set(currentTicket2, { x: 0, y: 0, duration: 0.5 })
-      .to(currentTicket2, { x: direction, y: -40, rotation: "5deg" })
-      .to(currentTicket2, { x: 0, y: 0, rotation: "0deg" })
+      // .to(currentTicket2, { x: direction, y: -40, rotation: "5deg" })
+      // .to(currentTicket2, { x: 0, y: 0, rotation: "0deg" })
       .call(animation2(ticketNumber2));
   });
+
+
 
 });

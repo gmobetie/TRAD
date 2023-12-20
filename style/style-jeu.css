@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Just+Another+Hand&display=swap');
 
 * {
     margin: 0;
@@ -264,21 +264,42 @@ span.effetneon {
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     overflow: hidden;
-    position: relative;
     background-image: url(../assets/chemin.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
+
 }
 
-#effetGroupe::before {
-    content: "";
-    padding-top: 56.25%; /* Ratio 16:9 (9/16 * 100%) */
-    display: block;
-    visibility: hidden; /* Cacher l'espace réservé du pseudo-élément */
+.titleEffetGroupe {
+    font-size: 3rem;
+    font-weight: 400;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Exo 2', sans-serif;
+    color: var(--neon-text-color);
+    padding: 0 2rem;
+    text-align: center;
+    user-select: none;
 }
+
+.containerEffetGroupe {
+    width: 100%;
+    padding-bottom: 20%;
+    height: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+
 
 .path {
     position: relative;
@@ -287,72 +308,74 @@ span.effetneon {
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+}
 
-  .popup {
+.popup {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff; /* Couleur de fond du popup */
-    color: #333; /* Couleur du texte du popup */
+
+    transform: translate(-50%, -150%);
+    background-color: #fff;
+    /* Couleur de fond du popup */
+    color: #333;
+    /* Couleur du texte du popup */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    max-width: 400px; /* Largeur maximale du popup */
+    max-width: 400px;
+    /* Largeur maximale du popup */
     width: 100%;
     text-align: center;
-  }
-  
-  .path:hover + .popup {
+}
+
+.path:hover+.popup {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
 
-  .path:hover {
+.path:hover {
     background-color: #e74c3c;
-  }
+}
 
-  .divider {
+.divider {
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
-  }
+}
 
-  #path1 {
+#path1 {
     top: 50%;
     left: 60%;
     background-color: #D65D6C;
-  }
+}
 
-  #path2 {
+#path2 {
     top: 50%;
     left: 50%;
     background-color: #58B5D2;
-  }
+}
 
-  #path3 {
+#path3 {
     top: 50%;
     left: 40%;
     background-color: #8362E2;
-  }
+}
 
-  #popup1 {
+#popup1 {
     top: 40%;
     left: 20%;
-  }
+}
 
-  #popup2 {
+#popup2 {
     top: 40%;
     left: 50%;
-  }
+}
 
-  #popup3 {
+#popup3 {
     top: 40%;
     left: 80%;
-  }
+}
 
 #effetVonRestorff {
     width: 100vw;
@@ -369,8 +392,8 @@ span.effetneon {
     font-weight: 400;
     font-family: 'Exo 2', sans-serif;
     color: #fff;
-    padding: 0 2rem;   
-    text-align: center; 
+    padding: 0 2rem;
+    text-align: center;
     user-select: none;
 }
 
@@ -394,7 +417,7 @@ span.effetneon {
 
 #shoppingCart {
     width: 80%;
-    height: 250px;
+    max-height: 90%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -405,7 +428,8 @@ span.effetneon {
     width: 90%;
     margin: 10px;
     padding: 10px;
-    height: 200px;
+    height: 100%;
+    max-height: 190px;
     background-color: #ffffff5e;
     border-radius: 30px;
     display: flex;
@@ -416,7 +440,8 @@ span.effetneon {
 
 .chariot {
     width: 100%;
-    height: 200px;
+    height: 100%;
+    max-height: 200px;
 }
 
 
@@ -439,6 +464,7 @@ span.effetneon {
     margin-top: 0px;
 
 }
+
 .dropzone .fruit img {
     width: 100%;
     max-width: 180px;
@@ -481,10 +507,11 @@ span.effetneon {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    
+
 }
 
-section.tickets ,section.tickets2{
+section.tickets,
+section.tickets2 {
     height: 80vh;
     width: 100vw;
     display: flex;
@@ -504,31 +531,39 @@ section.tickets ,section.tickets2{
     justify-content: center;
     align-items: center;
 }
+
 .tickets__ticket {
     background-color: #8F80C5;
     border-radius: 1rem;
     width: 30vw;
     height: 15vw;
     font-size: 5vw;
-    display:flex;
+    display: flex;
     flex-direction: column;
-    justify-content:space-around;
+    justify-content: space-around;
     align-items: center;
     position: absolute;
-    padding: 60px;
+    padding: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align:center;
+    text-align: center;
     font-family: 'Exo 2', sans-serif;
+}
+
+section.tickets2 .tickets__ticket {
+    width: 35vw;
+    height: 20vw;
 }
 
 .tickets__ticket h1 {
     color: #fff;
     font-size: 1.3rem;
 }
+
 .tickets__ticket h2 {
     color: #fff;
     font-size: 1.2rem;
 }
+
 .tickets__ticket p {
     line-height: 1.6;
     font-size: 1rem;
@@ -537,29 +572,137 @@ section.tickets ,section.tickets2{
 .tickets__ticket:nth-child(2) {
     background-color: #7E77BD;
 }
+
 .tickets__ticket:nth-child(3) {
     background-color: #7B729C;
 }
+
 .tickets__ticket:nth-child(4) {
     background-color: #5A599D;
 }
 
 #containert {
-    display:flex;
-    flex-wrap:wrap;
-    flex-direction:column;
-    height:100vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100vh;
     will-change: transform;
-  }
-  
-  .sectiont {
+}
+
+.sectiont {
     background-image: url(../assets/etagere.svg);
     background-size: cover;
-    height:100%;
-    display:flex;
+    height: 100%;
+    display: flex;
     width: 115vw;
-  }
+}
 
+#final {
+    padding-top: 6rem;
+    padding-bottom: 10rem;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.explicationFinale {
+    width: 90%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+#final a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: 'Exo 2', sans-serif;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    background-color: #ffffff48;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+#final a:hover {
+    background-color: #ffffff78;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.textFinale {
+    max-width: 70%;
+    min-width: 50%;
+    padding: 3rem;
+    min-height: 50%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff48;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+}
+
+.textFinale h2 {
+    font-size: 2.3rem;
+    font-weight: 400;
+    font-family: 'Exo 2', sans-serif;
+    color: #fff;
+    padding: 0 2rem;
+    text-align: center;
+    user-select: none;
+    margin-bottom: 1rem;
+}
+
+.textFinale h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: 'Exo 2', sans-serif;
+    color: #fff;
+    padding: 0 2rem;
+    text-align: center;
+    user-select: none;
+    margin-bottom: 1rem;
+}
+
+.textFinale p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: 'Exo 2', sans-serif;
+    color: #fff;
+    padding: 0 2rem;
+    text-align: center;
+    user-select: none;
+    margin-bottom: 1rem;
+}
+
+.imgFinale {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.imgFinale img {
+    width: 90%;
+    height: 90%;
+    border-radius: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+
+    object-fit: cover;
+}
 
 @media screen and (min-width: 1000px) {
     #route {
@@ -573,7 +716,6 @@ section.tickets ,section.tickets2{
     #shoppingCart {
         width: 50%;
     }
-
 
 
 }
