@@ -294,9 +294,8 @@ span.effetneon {
 
 .popup {
     display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    position: absolute;
+    top: -100px;
     transform: translate(-50%, -50%);
     background-color: #fff;
     /* Couleur de fond du popup */
@@ -305,19 +304,19 @@ span.effetneon {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    width: 100%;
-    font-size: 1.5rem;
+    max-width: 350px;
+    width: 50%;
+    font-size: 1.3rem;
     text-align: center;
 }
 
-.path:hover+.popup {
+#effetGroupe .divider .path:hover+.popup {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.path:hover {
+#effetGroupe .divider .path:hover {
     background-color: #e74c3c;
 }
 
@@ -473,59 +472,65 @@ span.effetneon {
 
 #explicationGroupe {
     height: 150vh;
-    padding-top:50vh ;
+    padding-top: 50vh;
     width: 100vw;
     background: linear-gradient(180deg, rgba(226, 219, 229, 1) 0%, rgba(91, 90, 157, 1) 40%, rgba(91, 90, 157, 1) 100%);
 }
 
-.pinned {}
-
-
-  .grid {
+.grid {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 60%;
     height: 100vh;
     margin: 0 auto;
-  }
+}
 
-  .img {
+.img {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 
-  }
+}
 
-  .img div {
-    padding: 10%;
+.img div {
     width: 70%;
     aspect-ratio: 447/559;
+    background-size: cover;
     background-image: url(../assets/feuille.png);
     background-position: center;
     background-repeat: no-repeat;
     font-family: 'Just Another Hand', cursive;
     font-size: 2rem;
-  }
-  
-  
-  .stepped-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img div ul li {
+    list-style: upper-roman;
+    margin-bottom: 2rem;
+}
+
+
+.stepped-animation {
     height: 100%;
     overflow-y: auto;
     position: relative;
-  }
-  
-  .single-step {
+}
+
+.single-step {
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
+    padding: 5%;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
-  }
+}
 
 @media screen and (min-width: 1000px) {
     #route {

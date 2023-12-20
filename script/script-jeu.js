@@ -182,9 +182,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Section
   ScrollTrigger.create({
     trigger: ".pinned",
-    start: "center center",
+    start: "top top",
     end: "+=" + pinDistance,
-    pin: "body",
+    pin: ".wrapper",
     markers: false,
     id: "pinned"
   });
