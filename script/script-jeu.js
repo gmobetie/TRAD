@@ -245,11 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
     path.addEventListener("click", function () {
       //if click on path, display true containert
       containert.style.display = "flex";
-      vonRestorff.style.display = "flex";
-      //scroll to containert
-      document.querySelector("#containert").scrollIntoView({
-        behavior: "smooth",
-      });
+      infos_container2.style.display = "flex";
       gsap.to(containert, {
         x: () =>
           -(containert.scrollWidth - document.documentElement.clientWidth) + "px",
@@ -264,9 +260,62 @@ document.addEventListener("DOMContentLoaded", function () {
           end: () => "+=" + containert.offsetWidth,
         },
       });
+            //scroll to containert when click on path
+            gsap.to(window, {scrollTo:"#infos_container2", duration:5});
+
+            
       if (path.dataset.chemin === "true") {
-       
+        document.querySelector("#infos_container2 > section > div > div:nth-child(3)").innerHTML = "Vous avez choisi le chemin de la droite";
       }
     });
   });
+  const ticketPrev2 = document.querySelector("#infos_container2 .tickets2");
+  const tickets2 = document.querySelectorAll(
+    "#infos_container2 .tickets__ticket"
+  );
+
+  let current2 = 0;
+
+  tickets2.forEach((ticket, index) => {
+    gsap.set(ticket, {
+      zIndex: index,
+      scale: 1 + 0.1 * index,
+      yPercent: 0 + 15 * index,
+    });
+  });
+
+  const animation2 = function (ticketNumber) {
+    tickets.forEach((ticket, index) => {
+      let ticketOrder = (ticketNumber + index) % tickets.length;
+      if (ticketOrder < 0) {
+        ticketOrder = ticketOrder + tickets.length;
+      }
+      gsap.to(ticket, {
+        zIndex: ticketOrder,
+        scale: 1 + 0.1 * ticketOrder,
+        yPercent: 0 + 15 * ticketOrder,
+      });
+    });
+  };
+
+  ticketPrev2.addEventListener("click", function () {
+   
+    const ticketNumber2 = current2 % tickets.length;
+    const currentTicket2 = tickets[ticketNumber2];
+    current2 = current2 + 1;
+
+    let direction = "100%";
+
+    if (Math.random() > 0.5) {
+      direction = "-100%";
+    }
+
+    const timeline2 = gsap.timeline();
+    timeline2
+      .set(currentTicket2, { x: 0, y: 0, duration: 0.5 })
+      .to(currentTicket2, { x: direction, y: -40, rotation: "5deg" })
+      .to(currentTicket2, { x: 0, y: 0, rotation: "0deg" })
+      .call(animation2(ticketNumber2));
+  });
+
 });

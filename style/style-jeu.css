@@ -484,7 +484,7 @@ span.effetneon {
     
 }
 
-section.tickets {
+section.tickets ,section.tickets2{
     height: 80vh;
     width: 100vw;
     display: flex;
@@ -494,9 +494,7 @@ section.tickets {
     color: #fff;
     position: relative;
 }
-section.tickets:hover {
-    cursor: pointer;
-}
+
 .tickets__wrapper {
     position: relative;
     min-width: 20%;
@@ -516,6 +514,9 @@ section.tickets:hover {
     justify-content: center;
     align-items: center;
     position: absolute;
+}
+.tickets__ticket:hover {
+    cursor: pointer;
 }
 .tickets__ticket:nth-child(2) {
     background-color: #A6A0A0;
