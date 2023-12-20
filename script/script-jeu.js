@@ -1,9 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
   var effetGroupe = document.getElementById("effetGroupe");
   var vonRestorff = document.getElementById("effetVonRestorff");
-  //displaynone
-  vonRestorff.style.display = "none";
+  var infos_container2 = document.getElementById("infos_container2");
+  var containert = document.getElementById("containert");
+  //visibility hidden
   effetGroupe.style.display = "none";
+  vonRestorff.style.display = "none";
+  infos_container2.style.display = "none";
+  containert.style.display = "none";
+  
+
 
   const { innerHeight } = window;
   var sound_neon = new Howl({
@@ -177,8 +183,10 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
 
-  const ticketPrev = document.querySelector(".tickets");
-  const tickets = document.querySelectorAll(".tickets__ticket");
+  const ticketPrev = document.querySelector("#infos_container .tickets");
+  const tickets = document.querySelectorAll(
+    "#infos_container .tickets__ticket"
+  );
 
   let current = 0;
 
@@ -192,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const animation = function (ticketNumber) {
     tickets.forEach((ticket, index) => {
-      let ticketOrder = (ticketNumber + index ) % tickets.length;
+      let ticketOrder = (ticketNumber + index) % tickets.length;
       if (ticketOrder < 0) {
         ticketOrder = ticketOrder + tickets.length;
       }
@@ -205,6 +213,13 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   ticketPrev.addEventListener("click", function () {
+    if (current === tickets.length) {
+      console.log("fini");
+      effetGroupe.style.display = "flex";;
+      document.querySelector("#effetGroupe").scrollIntoView({
+        behavior: "smooth",
+      });
+    }
     const ticketNumber = current % tickets.length;
     const currentTicket = tickets[ticketNumber];
     current = current + 1;
@@ -222,6 +237,36 @@ document.addEventListener("DOMContentLoaded", function () {
       //.to(currentTicket, { x: 0, y: 0, rotation: "0deg" })
       .call(animation(ticketNumber));
   });
-  //forbid acces to next div while you dont click on the first ticket
 
+
+  //get all .path and add event click
+  var paths = document.querySelectorAll(".path");
+  paths.forEach((path) => {
+    path.addEventListener("click", function () {
+      //if click on path, display true containert
+      containert.style.display = "flex";
+      vonRestorff.style.display = "flex";
+      //scroll to containert
+      document.querySelector("#containert").scrollIntoView({
+        behavior: "smooth",
+      });
+      gsap.to(containert, {
+        x: () =>
+          -(containert.scrollWidth - document.documentElement.clientWidth) + "px",
+    
+        scrollTrigger: {
+          start: "center center",
+          trigger: containert,
+          invalidateOnRefresh: true,
+          pin: true,
+          scrub: true,
+          anticipatePin: 1,
+          end: () => "+=" + containert.offsetWidth,
+        },
+      });
+      if (path.dataset.chemin === "true") {
+       
+      }
+    });
+  });
 });

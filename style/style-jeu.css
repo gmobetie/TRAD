@@ -282,8 +282,8 @@ span.effetneon {
 
 .path {
     position: relative;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -470,7 +470,7 @@ span.effetneon {
     background: linear-gradient(180deg, rgba(226, 219, 229, 1) 0%, rgba(91, 90, 157, 1) 90%, rgba(91, 90, 157, 1) 100%);
 }
 
-#infos_container {
+.infos_container {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -523,6 +523,22 @@ section.tickets:hover {
 .tickets__ticket:nth-child(3) {
     background-color: #8F80C5;
 }
+
+#containert {
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
+    height:100vh;
+    will-change: transform;
+  }
+  
+  .sectiont {
+    background-image: url(../assets/etagere.svg);
+    background-size: cover;
+    height:100%;
+    display:flex;
+    width: 115vw;
+  }
 
 
 @media screen and (min-width: 1000px) {
