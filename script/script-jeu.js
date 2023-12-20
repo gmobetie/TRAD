@@ -269,6 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
   const ticketPrev2 = document.querySelector("#infos_container2 .tickets2");
   const tickets2 = document.querySelectorAll(
     "#infos_container2 .tickets__ticket"
