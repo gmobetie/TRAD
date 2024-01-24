@@ -11,6 +11,8 @@ Actuellement, notre site traite les biais suivants :
 
 
 3. **Effet Von Restorff :** Plongez dans l'effet d'isolation, qui suggère que les éléments distinctifs dans un ensemble attirent davantage l'attention. Ici, la forme et la couleur de la banane la font sortir du lot. Seulement après expérimentation, d'autres biais plus puissants entrent en cause dans cette expérience.
+![image](https://github.com/gmobetie/TRAD/assets/91502674/5cd9e72f-8d28-4754-9073-3c129649410f)
+
 
 Des expériences comme la répugnance à la perte ont été maquettées et d'autres testées, mais ne sont pas encore développées sur le site.
 
